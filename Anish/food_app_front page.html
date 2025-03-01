@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instance Delivery</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ff5722;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .splash {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 1rem 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .container img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .container .content {
+            text-align: center;
+            flex: 1;
+            margin: 0 2rem;
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+
+        .search-bar {
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            width: 50%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-bar .suggestions {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .categories .category {
+            padding: 0.5rem 1rem;
+            background: #ff5722;
+            color: white;
+            border-radius: 5px;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: capitalize;
+        }
+
+        .categories .category:hover {
+            background: #ff784e;
+        }
+
+        .offer-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .offer-section h2 {
+            font-size: 2rem;
+            color: #ff5722;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="splash">Instance Delivery</div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Left Image -->
+        <img src="https://via.placeholder.com/300x400" alt="Food and Grocery Image">
+
+        <!-- Center Content -->
+        <div class="content">
+            <h1>Welcome to Instance Delivery</h1>
+            <p>Your one-stop solution for food and grocery delivery at lightning speed. Explore our amazing features and services now!</p>
+        </div>
+
+        <!-- Right Image -->
+        <img src="https://via.placeholder.com/300x400" alt="Food and Grocery Image">
+    </div>
+
+    <!-- Search Bar Section -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for food, groceries, or anything..." oninput="showSuggestions()" />
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="categories">
+        <div class="category">All</div>
+        <div class="category">Fresh</div>
+        <div class="category">Nonveg</div>
+        <div class="category">Veg</div>
+        <div class="category">Vegetables</div>
+        <div class="category">Fruits</div>
+    </div>
+
+    <!-- Offers Section -->
+    <div class="offer-section">
+        <h2>Republic Day Celebration Offers!</h2>
+        <p>Enjoy exciting discounts on food and groceries. Hurry, offers valid only for a limited time!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Instance Delivery. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Suggestions -->
+    <script>
+        function showSuggestions() {
+            const suggestions = [
+                "Pizza", 
+                "Burgers", 
+                "Fresh Fruits", 
+                "Vegetables", 
+                "Groceries", 
+                "Non-Veg Items"
+            ];
+            const input = document.querySelector(".search-bar input").value.toLowerCase();
+            const suggestionBox = document.getElementById("suggestions");
+
+            if (input) {
+                const filtered = suggestions.filter(item => item.toLowerCase().includes(input));
+                suggestionBox.innerHTML = filtered.length
+                    ? filtered.join(", ")
+                    : "No suggestions available.";
+            } else {
+                suggestionBox.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

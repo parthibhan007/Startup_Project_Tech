@@ -1,0 +1,13 @@
+{
+  "foods": [
+    { "name": "Paneer Butter Masala", "category": "veg", "image": "https://via.placeholder.com/150?text=Paneer+Butter+Masala" },
+    { "name": "Dal Tadka", "category": "veg", "image": "https://via.placeholder.com/150?text=Dal+Tadka" },
+    { "name": "Aloo Gobi", "category": "veg", "image": "https://via.placeholder.com/150?text=Aloo+Gobi" },
+    { "name": "Chicken Curry", "category": "non-veg", "image": "https://via.placeholder.com/150?text=Chicken+Curry" },
+    { "name": "Fish Fry", "category": "non-veg", "image": "https://via.placeholder.com/150?text=Fish+Fry" },
+    { "name": "Egg Curry", "category": "non-veg", "image": "https://via.placeholder.com/150?text=Egg+Curry" },
+    { "name": "Vegan Salad", "category": "vegan", "image": "https://via.placeholder.com/150?text=Vegan+Salad" },
+    { "name": "Tofu Stir Fry", "category": "vegan", "image": "https://via.placeholder.com/150?text=Tofu+Stir+Fry" },
+    { "name": "Vegan Burger", "category": "vegan", "image": "https://via.placeholder.com/150?text=Vegan+Burger" }
+  ]
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .testimonials {
+      width: 90%;
+      margin: 20px auto;
+    }
+    .test-wrapper {
+      margin-bottom: 20px;
+    }
+    .card-container {
+      display: flex;
+      gap: 10px;
+    }
+    .card {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card.active {
+      background-color: #007bff;
+      color: white;
+    }
+    .testimonial {
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+    .testimonial.active {
+      opacity: 1;
+    }
+    .d-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rating span {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div class="testimonials">
+    <div class="test-wrapper"></div>
+    <div class="card-container">
+      <div class="card" data-filter="John Doe">John Doe</div>
+      <div class="card" data-filter="Jane Smith">Jane Smith</div>
+    </div>
+  </div>
+  <button onclick="location.href='explore.html'">Explore Food</button>
+  <script>
+    const testimonialsData = {
+      testimonials: [
+        { name: "John Doe", position: "Software Engineer", info: "John is an exceptional contributor." },
+        { name: "Jane Smith", position: "Project Manager", info: "Jane is a skilled leader." }
+      ]
+    };
+
+    const testimonialsWrapper = document.querySelector('.test-wrapper');
+    const cards = [...document.querySelectorAll('.card')];
+
+    const displayTestimonials = (items) => {
+      const testimonialsHTML = items.map(
+        (item) => ` 
+          <div class="testimonial" data-id="${item.name}">
+            <div class="d-flex">
+              <div>
+                <h4>${item.name}</h4>
+                <span>${item.position}</span>
+              </div>
+              <div class="rating">
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class='bx bxs-star-half'></i></span>
+                <span><i class='bx bxs-star-half'></i></span>
+              </div>
+            </div>
+            <p>${item.info}</p>
+          </div>`
+      ).join('');
+      testimonialsWrapper.innerHTML = testimonialsHTML;
+    };
+
+    const filter = () => {
+      const testimonials = [...document.querySelectorAll('.testimonial')];
+      if (testimonials.length === 0) return;
+      cards[0].classList.add('active');
+      testimonials[0].classList.add('active');
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          cards.forEach((c) => c.classList.remove('active'));
+          testimonials.forEach((t) => {
+            t.classList.remove('active');
+            t.style.opacity = 0;
+          });
+          card.classList.add('active');
+          const filterValue = card.getAttribute('data-filter');
+          testimonials.forEach((testimonial) => {
+            if (testimonial.getAttribute('data-id') === filterValue) {
+              testimonial.classList.add('active');
+              testimonial.style.opacity = 1;
+            }
+          });
+        });
+      });
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const testimonials = testimonialsData.testimonials;
+      displayTestimonials(testimonials);
+      filter();
+    });
+  </script>
+</body>
+</html>
