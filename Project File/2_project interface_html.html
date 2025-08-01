@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstantCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            overflow: hidden; /* Prevent scrolling during splash */
+        }
+
+        /* Splash Screen */
+        .splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            animation: fadeOut 5s forwards; /* Increased duration */
+        }
+
+        .splash h1 {
+            font-size: 3rem;
+            animation: zoomIn 2s;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1); }
+        }
+
+        body.loaded {
+            overflow: auto;
+        }
+
+        /* General Styling */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056b3;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash">
+        <h1>InstantCare</h1>
+    </div>
+
+    <header>
+        <h1>InstantCare - Telemedicine</h1>
+    </header>
+    <nav>
+        <a href="#login" id="loginLink">Login</a>
+        <a href="#register" id="registerLink">Register</a>
+        <a href="#appointment" id="appointmentLink">Appointment</a>
+        <a href="#session" id="sessionLink">Doctor Session</a>
+        <a href="#prescription" id="prescriptionLink">Prescription</a>
+    </nav>
+    <div class="container">
+        <!-- Iframe to load pages -->
+        <iframe id="contentFrame" src="" style="display:none;"></iframe>
+    </div>
+    <footer>
+        <p>&copy; 2025 InstantCare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Remove splash screen after animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            setTimeout(() => {
+                document.querySelector('.splash').remove();
+            }, 5000); // Increased animation duration to 5 seconds
+        });
+
+        // Event listeners for navigation links
+        document.getElementById("loginLink").addEventListener("click", function() {
+            document.getElementById("contentFrame").style.display = "block";
+            document.getElementById("contentFrame").src = "C:/Users/sevarithi/Desktop/PDD/Project File/login_page-2.html"; // Load login page in iframe
+        });
+
+        document.getElementById("registerLink").addEventListener("click", function() {
+            document.getElementById("contentFrame").style.display = "block";
+            document.getElementById("contentFrame").src = "C:/Users/sevarithi/Desktop/PDD/Project File/Registration_page-2.html"; // Load registration page in iframe
+        });
+
+        document.getElementById("appointmentLink").addEventListener("click", function() {
+            document.getElementById("contentFrame").style.display = "block";
+            document.getElementById("contentFrame").src = "C:/Users/sevarithi/Desktop/PDD/Project File/Appointment_page-2.html"; // Load appointment page in iframe
+        });
+
+        document.getElementById("sessionLink").addEventListener("click", function() {
+            document.getElementById("contentFrame").style.display = "block";
+            document.getElementById("contentFrame").src = "C:/Users/sevarithi/Desktop/PDD/Project File/Doctor session_page-2.html"; // Load doctor session page in iframe
+        });
+
+        document.getElementById("prescriptionLink").addEventListener("click", function() {
+            document.getElementById("contentFrame").style.display = "block";
+            document.getElementById("contentFrame").src = "C:/Users/sevarithi/Desktop/PDD/Project File/prescription_page-2.html"; // Load prescription page in iframe
+        });
+    </script>
+</body>
+</html>

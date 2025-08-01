@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription - InstantCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Prescription - InstantCare</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Write a Prescription</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="medicine">Medicine Name</label>
+                <input type="text" id="medicine" name="medicine" placeholder="Enter medicine name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dosage">Dosage Instructions</label>
+                <textarea id="dosage" name="dosage" placeholder="Enter dosage schedule" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="instructions">Additional Instructions</label>
+                <textarea id="instructions" name="instructions" placeholder="Enter any additional instructions" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Save Prescription</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Need help? <a href="mailto:support@instantcare.com" class="footer-link">Contact Support</a></p>
+    </footer>
+
+</body>
+</html>
